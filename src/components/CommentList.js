@@ -20,7 +20,7 @@ function CommentList(props) {
   return (
       <Grid>
         <Row>
-          <Col xsOffset={2} xs={8}>
+          <Col xsOffset={1} xs={9}>
             <List>
               <div style={{boxShadow: '0 0 10px #f5f5f5'}}>
                 {commentItems}
