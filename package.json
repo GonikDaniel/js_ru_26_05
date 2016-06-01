@@ -59,5 +59,9 @@
     "react-tap-event-plugin": "1.0.0",
     "react-transform-catch-errors": "^1.0.0",
     "react-transform-hmr": "^1.0.1"
+  },
+  "engines": {
+    "node": "4.0.0",
+    "npm": "3.8.2"
   }
 }
