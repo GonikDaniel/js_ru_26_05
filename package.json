@@ -6,18 +6,18 @@
   "scripts": {
     "start": "npm run dev",
     "api": "node simple_api/server.js",
-    "dev": "webpack-dev-server --hot --inline"
+    "dev": "webpack-dev-server --hot --inline --port=6661"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/romabelka/js_ru_16_05.git"
+    "url": "git+https://github.com/GonikDaniel/js_ru_16_05.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/romabelka/js_ru_16_05.git"
+    "url": "https://github.com/GonikDaniel/js_ru_16_05.git"
   },
-  "homepage": "https://github.com/romabelka/js_ru_16_05.git",
+  "homepage": "https://github.com/GonikDaniel/js_ru_16_05.git",
   "devDependencies": {
     "babel-core": "^6.5.2",
     "babel-loader": "^6.2.3",
