@@ -11,8 +11,8 @@ function ArticleList(props) {
   const { articles } = props
 
   const articleItems = articles.map((article) =>
-    <div>
-      <Article article = {article} key={article.id} />
+    <div key={article.id}>
+      <Article article = {article} />
       <Divider />
     </div>
   );
@@ -20,10 +20,10 @@ function ArticleList(props) {
   return (
       <Grid>
         <Row>
-          <Col xs={2}>
+          <Col xs={1}>
             <h4>Menu</h4>
           </Col>
-          <Col xs={10}>
+          <Col xs={11}>
             <List>
               <Subheader>Today</Subheader>
               <div style={{boxShadow: '0 0 10px #f5f5f5'}}>
