@@ -1,37 +1,57 @@
 {
   "name": "react_course_16_05",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Simple ReactJS study project",
+  "main": "",
   "scripts": {
     "start": "npm run dev",
     "api": "node simple_api/server.js",
-    "dev": "webpack-dev-server --hot --inline --port=6661"
+    "dev": "webpack-dev-server --inline --quiet --port=6661"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GonikDaniel/js_ru_16_05.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Gonik Daniel",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/GonikDaniel/js_ru_16_05.git"
   },
   "homepage": "https://github.com/GonikDaniel/js_ru_16_05.git",
   "devDependencies": {
+    "autoprefixer": "^6.0.3",
     "babel-core": "^6.5.2",
+    "babel-eslint": "^4.1.5",
+    "babel-polyfill": "6.9.1",
     "babel-loader": "^6.2.3",
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-react": "^6.5.0",
     "babel-preset-react-hmre": "^1.1.1",
+    "babel-plugin-react-transform": "^1.1.1",
+    "extract-text-webpack-plugin": "^0.9.0",
     "babel-preset-stage-0": "^6.5.0",
     "css-loader": "^0.23.1",
+    "sass-loader": "^3.0.0",
+    "toolbox-loader": "0.0.3",
     "style-loader": "^0.13.0",
+    "classnames": "^2.2.1",
+    "cross-env": "^1.0.1",
+    "node-sass": "^3.4.1",
+    "postcss-loader": "^0.7.0",
     "webpack": "^1.12.14",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^1.14.1",
+    "webpack-dev-middleware": "^1.2.0",
+    "webpack-hot-middleware": "^2.4.1"
   },
   "dependencies": {
+    "classnames": "2.2.5",
+    "flexboxgrid": "6.3.0",
+    "material-ui": "0.15.0",
     "react": "^15.0.2",
-    "react-dom": "^15.0.2"
+    "react-dom": "^15.0.2",
+    "react-flexbox-grid": "0.9.6",
+    "react-tap-event-plugin": "1.0.0",
+    "react-transform-catch-errors": "^1.0.0",
+    "react-transform-hmr": "^1.0.1"
   }
 }
