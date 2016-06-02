@@ -13,7 +13,7 @@ class Comment extends Component {
 
     return (
       <ListItem
-        leftAvatar={<Avatar src="/build/images/noPhoto.jpg" />}
+        leftAvatar={<Avatar src="/images/noPhoto.jpg" />}
         primaryText={comment.name}
         secondaryText={
           <p>

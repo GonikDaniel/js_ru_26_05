@@ -25,6 +25,10 @@ class Article extends Component {
     const comments = showComments ?
       <CommentList comments = {article.comments || []}  /> :
       'No comments';
+
+    const buttonLabel = showComments ?
+      'Hide comments' :
+      'Show comments';
     
 
     return (
@@ -39,7 +43,7 @@ class Article extends Component {
           {article.text}
         </CardText>
         <CardActions expandable={true}>
-          <RaisedButton label="Show comments" primary={true} style={buttonStyle} onClick = {this.toggleComments} />
+          <RaisedButton label={buttonLabel} primary={true} style={buttonStyle} onClick = {this.toggleComments} />
         </CardActions>
         {comments}
       </Card>
