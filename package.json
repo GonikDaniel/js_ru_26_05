@@ -8,7 +8,7 @@
     "start": "npm run dev",
     "clean": "rimraf dist",
     "build:webpack": "cross-env NODE_ENV=production webpack --config webpack.config.js --quiet",
-    "build": "npm run clean && npm run build:webpack && cp index.build.html build/index.html",
+    "build": "npm run clean && npm run build:webpack",
     "api": "nodemon api/server.js",
     "dev": "webpack-dev-server --inline --quiet --port=6661",
     "lint": "eslint src"
