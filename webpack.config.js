@@ -41,7 +41,7 @@ module.exports = {
   postcss: [autoprefixer],
   plugins: [
     new ExtractTextPlugin('app.css', { allChunks: true }),  // compiled css (single file only)
-    new HtmlWebpackPlugin(),
+    // new HtmlWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({

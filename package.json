@@ -2,7 +2,7 @@
   "name": "react_course_16_05",
   "version": "1.0.0",
   "description": "Simple ReactJS study project",
-  "main": "index.html",
+  "main": "server.js",
   "scripts": {
     "postinstall": "npm run build",
     "start": "npm run dev",
