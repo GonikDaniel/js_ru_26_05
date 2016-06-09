@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 
-import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import CommentList from './CommentList';
 
@@ -15,30 +15,42 @@ class Article extends Component {
   }
 
   render() {
-    const { article } = this.props;
-    const { showComments } = this.state
+    const { article, openArticle } = this.props;
 
     if (!article) {
-      return <h3>No articles</h3>
+      return <h3>No article</h3>
     }
-
-    const comments = showComments ?
-      <CommentList comments = {article.comments || []}  /> :
-      'No comments';
-
-    const buttonLabel = showComments ?
-      'Hide comments' :
-      'Show comments';
     
 
     return (
       <Card>
         <CardHeader
+          onClick = { openArticle }
           title={article.author}
           subtitle={article.title}
           actAsExpander={true}
           showExpandableButton={true}
         />
+        { this.getBody() }
+      </Card>
+    );
+  }
+
+  getBody() {
+    const { article, isOpen } = this.props
+    const { showComments } = this.state
+
+    if (!isOpen) return null
+
+    const comments = showComments ?
+      <CommentList comments = {article.comments || []}  /> : null;
+
+    const buttonLabel = showComments ?
+      'Hide comments' :
+      'Show comments';
+
+    return (
+      <div>
         <CardText expandable={true}>
           {article.text}
         </CardText>
@@ -46,7 +58,7 @@ class Article extends Component {
           <RaisedButton label={buttonLabel} primary={true} style={buttonStyle} onClick = {this.toggleComments} />
         </CardActions>
         {comments}
-      </Card>
+      </div>
     );
   }
 

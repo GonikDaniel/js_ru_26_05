@@ -1,8 +1,10 @@
-const path = require('path');
-const webpack = require('webpack');
-const autoprefixer = require('autoprefixer');
+const path              = require('path');
+const webpack           = require('webpack');
+const autoprefixer      = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ENV               = process.env.NODE_ENV || 'development';
+const publicPath        = (ENV === 'production') ? 'build' : 'static';
 
 module.exports = {
   devtool: 'source-map',
@@ -12,7 +14,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'build'),
     filename: 'bundle.js',
-    publicPath: '/build/'
+    publicPath: `/${publicPath}/`
   },
   resolve: {
     extensions: ['', '.jsx', '.scss', '.js', '.json'],  // along the way, subsequent file(s) to be consumed by webpack

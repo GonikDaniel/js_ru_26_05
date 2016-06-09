@@ -5,25 +5,22 @@ import Avatar from 'material-ui/Avatar';
 import {grey400, darkBlack, lightBlack} from 'material-ui/styles/colors';
 import '../assets/images/noPhoto.jpg';
 
-class Comment extends Component {
+function Comment(props) {
 
-  render() {
-    const { comment } = this.props;
-    
+  const { comment } = props;  
 
-    return (
-      <ListItem
-        leftAvatar={<Avatar src="/images/noPhoto.jpg" />}
-        primaryText={comment.name}
-        secondaryText={
-          <p>
-            {comment.text}
-          </p>
-        }
-        secondaryTextLines={2}
-      />
-    );
-  }
+  return (
+    <ListItem
+      leftAvatar={<Avatar src="/images/noPhoto.jpg" />}
+      primaryText={comment.name}
+      secondaryText={
+        <p>
+          {comment.text}
+        </p>
+      }
+      secondaryTextLines={2}
+    />
+  );
 
 }
 
