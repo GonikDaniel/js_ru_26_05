@@ -51,7 +51,7 @@ export default class DatePickerToggle extends React.Component {
     return (
       <div>
         <DatePicker
-          floatingLabelText="Ranged Date Picker"
+          floatingLabelText="Filter articles by date"
           autoOk={this.state.autoOk}
           minDate={this.state.minDate}
           maxDate={this.state.maxDate}
@@ -218,9 +218,5 @@ DatePickerToggle.propTypes = {
   /**
    * Sets the date for the Date Picker programmatically.
    */
-  value: PropTypes.object,
-  /**
-   * Wordings used inside the button of the dialog.
-   */
-  wordings: deprecated(PropTypes.object, 'Instead, use `cancelLabel` and `okLabel`.')
+  value: PropTypes.object
 }

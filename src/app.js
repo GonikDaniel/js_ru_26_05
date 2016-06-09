@@ -5,7 +5,7 @@ import { articles } from './fixtures';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import {deepOrange500} from 'material-ui/styles/colors';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import ArticleList from './components/ArticleList';
+import App from './components/App';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 // Needed for onTouchTap
@@ -21,13 +21,13 @@ const muiTheme = getMuiTheme({
   },
 });
 
-const App = () => (
+const Container = () => (
   <MuiThemeProvider muiTheme={muiTheme}>
-    <ArticleList articles = {articles} />
+    <App articles = {articles} />
   </MuiThemeProvider>
 );
 
 render(
-  <App />,
+  <Container />,
   document.getElementById('root')
 );
