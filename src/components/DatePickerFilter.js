@@ -1,98 +1,53 @@
 import React, { PropTypes, Component } from 'react';
 import DatePicker from 'material-ui/DatePicker';
 import Toggle from 'material-ui/Toggle';
+import Subheader from 'material-ui/Subheader';
 
 const optionsStyle = {
   maxWidth: 255,
   marginRight: 'auto',
 };
 
-/**
- * Allows you to set a date range, and to toggle `autoOk`, and `disableYearSelection`.
- */
-export default class DatePickerToggle extends React.Component {
-  constructor(props) {
-    super(props);
-
-    const minDate = new Date();
-    const maxDate = new Date();
-    minDate.setFullYear(minDate.getFullYear() - 1);
-    minDate.setHours(0, 0, 0, 0);
-    maxDate.setFullYear(maxDate.getFullYear() + 1);
-    maxDate.setHours(0, 0, 0, 0);
-
-    this.state = {
-      minDate: minDate,
-      maxDate: maxDate,
-      autoOk: false,
-      disableYearSelection: false,
-    };
-  }
-
-  handleChangeMinDate = (event, date) => {
-    this.setState({
-      minDate: date,
-    });
-  };
-
-  handleChangeMaxDate = (event, date) => {
-    this.setState({
-      maxDate: date,
-    });
-  };
-
-  handleToggle = (event, toggled) => {
-    this.setState({
-      [event.target.name]: toggled,
-    });
-  };
-
-  render() {
-    return (
-      <div>
-        <DatePicker
-          floatingLabelText="Filter articles by date"
-          autoOk={this.state.autoOk}
-          minDate={this.state.minDate}
-          maxDate={this.state.maxDate}
-          disableYearSelection={this.state.disableYearSelection}
-        />
-        <div style={optionsStyle}>
-          <DatePicker
-            onChange={this.handleChangeMinDate}
-            autoOk={this.state.autoOk}
-            floatingLabelText="Min Date"
-            defaultDate={this.state.minDate}
-            disableYearSelection={this.state.disableYearSelection}
-          />
-          <DatePicker
-            onChange={this.handleChangeMaxDate}
-            autoOk={this.state.autoOk}
-            floatingLabelText="Max Date"
-            defaultDate={this.state.maxDate}
-            disableYearSelection={this.state.disableYearSelection}
-          />
-          <Toggle
-            name="autoOk"
-            value="autoOk"
-            label="Auto Ok"
-            toggled={this.state.autoOk}
-            onToggle={this.handleToggle}
-          />
-          <Toggle
-            name="disableYearSelection"
-            value="disableYearSelection"
-            label="Disable Year Selection"
-            toggled={this.state.disableYearSelection}
-            onToggle={this.handleToggle}
-          />
-        </div>
-      </div>
-    );
-  }
+const subHeaderStyle = {
+  paddingLeft: 0
 }
 
-DatePickerToggle.propTypes = {
+/**
+ * Allows you to set a date range, and to toggle `autoOk`.
+ */
+const DatePickerFilter = ({ handleChangeMinDate, handleChangeMaxDate, autoOk, handleToggle }) => {
+  return (
+    <div>
+      <Subheader style={subHeaderStyle}>Filter articles by date</Subheader>
+      <div style={optionsStyle}>
+        <DatePicker
+          onChange={ handleChangeMinDate }
+          autoOk={ autoOk }
+          floatingLabelText="From"
+          // defaultDate={this.state.minDate}
+          // disableYearSelection={this.state.disableYearSelection}
+        />
+        <DatePicker
+          onChange={ handleChangeMaxDate }
+          autoOk={ autoOk }
+          floatingLabelText="To"
+          // defaultDate={this.state.maxDate}
+          // disableYearSelection={this.state.disableYearSelection}
+        />
+        <br />
+        <Toggle
+          name="autoOk"
+          value="autoOk"
+          label="Auto Ok"
+          toggled={ autoOk }
+          onToggle={ handleToggle }
+        />
+      </div>
+    </div>
+  );
+}
+
+DatePickerFilter.propTypes = {
   /**
    * Constructor for date formatting for the specified `locale`.
    * The constructor must follow this specification: ECMAScript Internationalization API 1.0 (ECMA-402).
@@ -220,3 +175,5 @@ DatePickerToggle.propTypes = {
    */
   value: PropTypes.object
 }
+
+export default DatePickerFilter;
