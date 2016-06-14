@@ -5,7 +5,7 @@ import DatePickerFilter from '../components/DatePickerFilter';
 const mapStateToProps = (state, ownProps) => {
   console.log(state);
   return {
-    // autoOk: ownProps.autoOk === state.settings.autoOk
+    autoOk: ownProps.autoOk === state.settings.autoOk
   };
 }
 
