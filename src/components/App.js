@@ -2,13 +2,13 @@ import React, { PropTypes, Component } from 'react';
 
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
-import ArticleList from './ArticleList';
+import FilteredArticleList from '../containers/FilteredArticleList';
+import DatePickerFilter from './DatePickerFilter';
 import DatePickerContainer from '../containers/DatePickerContainer';
 
 class App extends Component {
 
   render() {
-    const { articles } = this.props
     const autoOk = true;
 
     return (
@@ -19,7 +19,7 @@ class App extends Component {
               <DatePickerContainer autoOk = { autoOk } />
             </Col>
             <Col xs={9}>
-              <ArticleList articles = { articles } />
+              <FilteredArticleList />
             </Col>
           </Row>
         </Grid>
@@ -27,8 +27,6 @@ class App extends Component {
   }
 }
 
-App.propTypes = {
-  articles: PropTypes.array.isRequired
-}
+App.propTypes = {}
 
 export default App;

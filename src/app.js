@@ -10,7 +10,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import {deepOrange500} from 'material-ui/styles/colors';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import { articles } from './fixtures';
+// import { articles } from './fixtures';
 import App from './components/App';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -33,7 +33,7 @@ const muiTheme = getMuiTheme({
 const AppContainer = () => (
   <MuiThemeProvider muiTheme={muiTheme}>
     <Provider store={store}>
-      <App articles = {articles} />
+      <App />
     </Provider>
   </MuiThemeProvider>
 );

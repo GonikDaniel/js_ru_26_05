@@ -4,8 +4,14 @@ import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import CommentList from './CommentList';
 
-const buttonStyle = {
-  margin: 10,
+const style = {
+  commentButton: {
+    margin: 10
+  },
+  noArticle: {
+    padding: 10,
+    color: '#e7e7e7'
+  }
 };
 
 class Article extends Component {
@@ -18,7 +24,7 @@ class Article extends Component {
     const { article, openArticle } = this.props;
 
     if (!article) {
-      return <h3>No article</h3>
+      return <p style={ style.noArticle } >No article</p>
     }
     
 
@@ -55,7 +61,7 @@ class Article extends Component {
           {article.text}
         </CardText>
         <CardActions expandable={true}>
-          <RaisedButton label={buttonLabel} primary={true} style={buttonStyle} onClick = {this.toggleComments} />
+          <RaisedButton label={buttonLabel} primary={true} style={style.commentButton} onClick = {this.toggleComments} />
         </CardActions>
         {comments}
       </div>
@@ -67,7 +73,6 @@ class Article extends Component {
       showComments: !this.state.showComments
     })
   }
-
 }
 
 
