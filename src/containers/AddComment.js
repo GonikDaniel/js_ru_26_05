@@ -6,31 +6,24 @@ import TextField from 'material-ui/TextField';
 
 import * as utils from '../utils';
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-  };
-};
+let AddComment = ({ dispatch, articleId }) => {
+  let input;
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    onKeyDown: e => {
-      if (e.keyCode === 13) {
-        e.preventDefault();
-        const input = e.target.value;
+  const onKeyDown = e => {
+    if (e.keyCode === 13) {
+      e.preventDefault();
 
-        if (!input.trim()) {
-          return;
-        }
-
-        const randomCommentId = utils.generateRandomAlphaNum(20);
-
-        dispatch(addComment(randomCommentId, undefined, input, ownProps.articleId));
+      if (!input.value.trim()) {
+        return;
       }
-    }
-  };
-};
 
-let AddComment = ({ onKeyDown }) => {
+      const randomCommentId = utils.generateRandomAlphaNum(20);
+
+      dispatch(addComment(randomCommentId, undefined, input.value, articleId));
+      input.value = '';
+    }
+  }
+
   return (
     <form>
       <TextField
@@ -40,14 +33,14 @@ let AddComment = ({ onKeyDown }) => {
         rows={2}
         fullWidth={true}
         onKeyDown={onKeyDown}
+        ref={node => {
+          input = node.input.refs.input
+        }}
       />
     </form>
   );
 }
 
-AddComment = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AddComment);
+AddComment = connect()(AddComment);
 
 export default AddComment;
