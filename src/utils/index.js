@@ -13,6 +13,9 @@ export function generateRandomAlphaNum(len) {
     return  rdmString.substr(0, len);
 }
 
-export function getRandomInt(min = 0, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
+export function guid() {
+  function r() {
+    return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+  }
+  return r() + r() + r() + '-' + r() + '_' + r() + '-' + r() + '_' + r() + r() + r();
 }

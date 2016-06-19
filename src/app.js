@@ -9,6 +9,8 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { deepOrange500 } from 'material-ui/styles/colors';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
+import ReduxToastr from 'react-redux-toastr';
+
 // import { articles } from './fixtures';
 import App from './components/App';
 
@@ -18,7 +20,8 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 // https://github.com/zilverline/react-tap-event-plugin
 injectTapEventPlugin();
 
-import '../node_modules/flexboxgrid/dist/flexboxgrid.min.css';
+import 'flexboxgrid/dist/flexboxgrid.min.css';
+import 'react-redux-toastr/src/less/index.less'
 
 const muiTheme = getMuiTheme({
   palette: {
@@ -29,7 +32,15 @@ const muiTheme = getMuiTheme({
 const AppContainer = () => (
   <MuiThemeProvider muiTheme={muiTheme}>
     <Provider store={store}>
-      <App />
+      <div>
+        <App />
+        {/* props are not required */}
+        <ReduxToastr
+          timeOut={3000}
+          position='top-left'
+          transitionIn={'slideDown'}
+          transitionOut='slideUp' />
+      </div>
     </Provider>
   </MuiThemeProvider>
 );

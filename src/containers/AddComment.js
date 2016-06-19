@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { addComment } from '../AC/index';
+import { toastr } from 'react-redux-toastr';
 
 import TextField from 'material-ui/TextField';
 
@@ -17,10 +18,11 @@ let AddComment = ({ dispatch, articleId }) => {
         return;
       }
 
-      const randomCommentId = utils.generateRandomAlphaNum(20);
+      const randomCommentId = utils.guid();
 
       dispatch(addComment(randomCommentId, undefined, input.value, articleId));
       input.value = '';
+      toastr.success('Done', 'Comment added!');
     }
   }
 
