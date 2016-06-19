@@ -36,7 +36,7 @@ let AddComment = ({ dispatch, articleId }) => {
         fullWidth={true}
         onKeyDown={onKeyDown}
         ref={node => {
-          input = node.input.refs.input
+          input = (node && node.input) ? node.input.refs.input : {}
         }}
       />
     </form>
