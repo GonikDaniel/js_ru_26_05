@@ -29,7 +29,7 @@ Comment.propTypes = {
   comment: PropTypes.shape({
     name: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired
+    id: PropTypes.string.isRequired
   }),
   options: PropTypes.object
 }

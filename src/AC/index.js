@@ -22,11 +22,9 @@ export const settingsUpdate = (settingName, value) => {
   }
 };
 
-export const addComment = (id, text) => {
-  console.log(id, text);
+export const addComment = (id, name, text, articleId) => {
   return {
     type: 'ADD_COMMENT',
-    id: id,
-    text
+    id, name, text, articleId
   }
 }

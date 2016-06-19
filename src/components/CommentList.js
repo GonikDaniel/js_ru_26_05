@@ -8,7 +8,6 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import { CardActions } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 
-
 import Comment from './Comment';
 import AddComment from '../containers/AddComment';
 
@@ -24,6 +23,10 @@ const style = {
   },
   commentButton: {
     margin: '10px'
+  },
+  noData: {
+    marginBottom: '20px',
+    textAlign: 'center'
   }
 }
 
@@ -75,8 +78,22 @@ class CommentList extends Component {
       const { article, isOpen } = this.props
       if (!isOpen) return null
       const comments = utils.getRelation(article, 'comments')
-      if (!comments || !comments.length) return <h3>No comments yet</h3>
-      if (comments.includes(undefined)) return <h3>Loading comments...</h3>
+      if (!comments || !comments.length) {
+        return (
+          <div>
+            <AddComment articleId = { article.id } />
+            <Subheader style = { style.noData }>No comments yet. Be the first 😉</Subheader>
+          </div>
+        );
+      }
+      if (comments.includes(undefined)) {
+        return (
+          <div>
+            <AddComment articleId = { article.id } />
+            <Subheader style = { style.noData }>Loading comments...</Subheader>
+          </div>
+        );
+      }
 
       const commentItems = comments.map((comment) =>
         <div key={comment.id}>

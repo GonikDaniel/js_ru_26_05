@@ -4,6 +4,8 @@ import { addComment } from '../AC/index';
 
 import TextField from 'material-ui/TextField';
 
+import * as utils from '../utils';
+
 const mapStateToProps = (state, ownProps) => {
   return {
   };
@@ -20,7 +22,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
           return;
         }
 
-        dispatch(addComment(ownProps.articleId, input));
+        const randomCommentId = utils.generateRandomAlphaNum(20);
+
+        dispatch(addComment(randomCommentId, undefined, input, ownProps.articleId));
       }
     }
   };

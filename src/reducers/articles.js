@@ -8,6 +8,17 @@ const article = (state, action) => {
         text: action.text,
         completed: false
       };
+    case 'ADD_COMMENT':
+      if (state.id !== action.articleId) {
+        return state;
+      }
+
+      return Object.assign({}, state, {
+        comments: [
+          ...state.comments,
+          action.id
+        ]
+      });
     default:
       return state;
   }
@@ -20,10 +31,10 @@ const articles = (state = fixtures.normalizedArticles, action) => {
         ...state,
         article(undefined, action)
       ];
-    case 'TOGGLE_ARTICLE':
-      return state.map(t =>
-        article(t, action)
-      );
+    case 'ADD_COMMENT':
+      return state.map(item => {
+        return article(item, action)
+      });
     default:
       return state;
   }

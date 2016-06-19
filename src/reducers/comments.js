@@ -3,8 +3,8 @@ const comment = (state, action) => {
     case 'ADD_COMMENT':
       return {
         id: action.id,
-        text: action.text,
-        completed: false
+        name: action.name || 'Unknown',
+        text: action.text
       }
 
     default:
