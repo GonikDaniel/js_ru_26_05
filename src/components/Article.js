@@ -1,13 +1,9 @@
 import React, { PropTypes, Component } from 'react';
 
-import { Card, CardActions, CardHeader, CardTitle, CardText } from 'material-ui/Card';
-import RaisedButton from 'material-ui/RaisedButton';
+import { Card, CardHeader, CardTitle, CardText } from 'material-ui/Card';
 import CommentList from './CommentList';
 
 const style = {
-  commentButton: {
-    margin: 10
-  },
   noArticle: {
     padding: 10,
     color: '#e7e7e7'
@@ -45,26 +41,15 @@ class Article extends Component {
 
   getBody() {
     const { article, isOpen } = this.props
-    const { showComments } = this.state
 
     if (!isOpen) return null
-
-    const comments = showComments ?
-      <CommentList comments = {article.comments || []} articleId = {article.id}  /> : null;
-
-    const buttonLabel = showComments ?
-      'Hide comments' :
-      'Show comments';
 
     return (
       <div>
         <CardText expandable={true}>
           {article.text}
         </CardText>
-        <CardActions expandable={true}>
-          <RaisedButton label={buttonLabel} primary={true} style={style.commentButton} onClick = {this.toggleComments} />
-        </CardActions>
-        {comments}
+        <CommentList article = { article } />
       </div>
     );
   }

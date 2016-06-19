@@ -25,14 +25,12 @@ const DatePickerFilter = ({ handleChangeMinDate, handleChangeMaxDate, autoOk, ha
           autoOk={ autoOk }
           floatingLabelText="From"
           // defaultDate={this.state.minDate}
-          // disableYearSelection={this.state.disableYearSelection}
         />
         <DatePicker
           onChange={ handleChangeMaxDate }
           autoOk={ autoOk }
           floatingLabelText="To"
           // defaultDate={this.state.maxDate}
-          // disableYearSelection={this.state.disableYearSelection}
         />
         <br />
         <Toggle

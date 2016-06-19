@@ -13,7 +13,7 @@ const article = (state, action) => {
   }
 };
 
-const articles = (state = fixtures.articles, action) => {
+const articles = (state = fixtures.normalizedArticles, action) => {
   switch (action.type) {
     case 'ADD_ARTICLE':
       return [
