@@ -6,9 +6,14 @@ import Subheader from 'material-ui/Subheader';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
 import Comment from './Comment';
+import AddComment from '../containers/AddComment';
+
+const style = {
+  marginBottom: '20px'
+}
 
 function CommentList(props) {
-  const { comments } = props;
+  const { comments, articleId } = props;
 
   const commentItems = comments.map((comment) =>
     <div key={comment.id}>
@@ -18,17 +23,16 @@ function CommentList(props) {
   );
 
   return (
-      <Grid>
-        <Row>
-          <Col xsOffset={1} xs={9}>
-            <List>
-              <div style={{boxShadow: '0 0 10px #f5f5f5'}}>
-                {commentItems}
-              </div>
-            </List>
-          </Col>
-        </Row>
-      </Grid>
+      <Row>
+        <Col xsOffset={1} xs={10}>
+          <AddComment articleId={articleId} />
+          <List style={ style }>
+            <div style={{boxShadow: '0 0 10px #f5f5f5'}}>
+              {commentItems}
+            </div>
+          </List>
+        </Col>
+      </Row>
   );
 }
 

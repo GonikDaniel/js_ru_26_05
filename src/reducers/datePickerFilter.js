@@ -1,8 +1,8 @@
 import { SET_MIN_DATE, SET_MAX_DATE } from '../constants/actions';
 
 const defaultSettings = {
-  minDate: new Date,
-  maxDate: new Date
+  minDate: undefined,
+  maxDate: undefined
 };
 
 const datePickerFilter = (state = defaultSettings, action) => {

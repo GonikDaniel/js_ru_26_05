@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 
-import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
+import { Card, CardActions, CardHeader, CardTitle, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import CommentList from './CommentList';
 
@@ -33,10 +33,11 @@ class Article extends Component {
         <CardHeader
           onClick = { openArticle }
           title={article.author}
-          subtitle={article.title}
+          subtitle={new Date(article.date).toString()}
           actAsExpander={true}
           showExpandableButton={true}
         />
+        <CardTitle subtitle={article.title} />
         { this.getBody() }
       </Card>
     );
@@ -49,7 +50,7 @@ class Article extends Component {
     if (!isOpen) return null
 
     const comments = showComments ?
-      <CommentList comments = {article.comments || []}  /> : null;
+      <CommentList comments = {article.comments || []} articleId = {article.id}  /> : null;
 
     const buttonLabel = showComments ?
       'Hide comments' :
