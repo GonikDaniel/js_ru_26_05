@@ -22,6 +22,7 @@ export const settingsUpdate = (settingName, value) => {
   }
 };
 
+//как и в случае с Flux - UI не лучшее место для генерации id
 export const addComment = (id, name, text, articleId) => {
   return {
     type: 'ADD_COMMENT',
