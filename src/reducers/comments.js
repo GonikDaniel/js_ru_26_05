@@ -1,3 +1,4 @@
+//тут перемудрили немного. выноить функции-хелперы это хорошо, но еще один полноценный редюсер - лишнее
 const comment = (state, action) => {
   switch (action.type) {
     case 'ADD_COMMENT':
