@@ -39,7 +39,7 @@ module.exports = {
         loader: "style!css!less"
       }, {
         test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.eot$|\.wav$|\.mp3$/,
-        loader: 'file?name=images/[name].[ext]'
+        loader: 'file?name=assets/[name].[ext]'
       }
     ]
   },

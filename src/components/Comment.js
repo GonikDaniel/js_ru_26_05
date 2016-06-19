@@ -11,7 +11,7 @@ function Comment(props) {
 
   return (
     <ListItem
-      leftAvatar={<Avatar src="/images/noPhoto.jpg" />}
+      leftAvatar={<Avatar src="/assets/noPhoto.jpg" />}
       primaryText={comment.name}
       secondaryText={
         <p>
